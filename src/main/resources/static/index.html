@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <title>Loja</title>
+</head>
+<body>
+  <!--listar todos os jogos -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="./index.html">
+        <img src="controller.svg" width="42" height="42">
+        Loja
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="./index.html">Home</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              Funções
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Salvar</a></li>
+              <li><a class="dropdown-item" href="#">Deletar</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div id="lista" class="row">
+        <p class="font-weight-bold">#Id</p>
+        <img src="./controller.svg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Nome</h5>
+          <p class="card-text">Isto é possivelmente um jogo, basta comprar e jogar.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Categoria</li>
+        </ul>
+        <div class="card-body">
+          <a onclick="comprar()" href="" class="btn btn-primary">Comprar</a>
+          <a onclick="alterar()" href="" class="btn btn-warning">Alterar</a>
+          <a onclick="deletar()" href="#" class="btn btn-danger">
+            <img src="./trash3.svg" alt="Deletar" width="16" height="16">
+          </a>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Alteração</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="formAlterar">
+              <input type="hidden" id="alterarId">
+              <div class="mb-3">
+                <label for="alterarNome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="alterarNome">
+              </div>
+              <div class="mb-3">
+                <label for="alterarCategoria" class="form-label">Categoria</label>
+                <input type="text" class="form-control" id="alterarCategoria">
+              </div>
+              <div class="mb-3">
+                <label for="alterarPreco" class="form-label">Preço</label>
+                <input type="number" step="0.01" class="form-control" id="alterarPreco">
+              </div>
+              <div class="mb-3">
+                <label for="alterarCodigo" class="form-label">Código de Ativação</label>
+                <input type="text" class="form-control" id="alterarCodigo">
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button onclick="salvarAlteracao()" type="button" class="btn btn-primary">Salvar Alterações</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <footer class="bg-dark text-light mt-5">
+    <div class="bg-secondary text-center py-2">
+      <small>&copy; 2026 Loja - Todos os direitos reservados</small>
+    </div>
+  </footer>
+
+</body>
+</html>
