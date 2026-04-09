@@ -4,11 +4,13 @@ function salvar(){
     const jogo = {
         nome: document.getElementById("nome").value,
         preco: parseFloat(document.getElementById("preco").value),
-        categoria: parseFloat(document.getElementById("categoria").value),
+        categoria: document.getElementById("categoria").value,
         codigo_ativacao: document.getElementById("codigo_ativacao").value
     };
 
     fetch(url, {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(jogo)}).then(response => response.json()).then(() => listar());
+
+    document.getElementById("form").reset();
 }
 
 function listar(){
@@ -71,7 +73,7 @@ function alterar(id){
         document.getElementById("alterarPreco").value = jogo.preco;
         document.getElementById("alterarCodigo").value = jogo.codigo_ativacao;
 
-        const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+        const modal = new bootstrap.Modal(document.getElementById('alterarModal'));
         modal.show();
     });
 }
@@ -97,16 +99,24 @@ function salvarAlteracao() {
         listar();
 
         // fechar modal
-        const modalEl = document.getElementById('exampleModal');
+        const modalEl = document.getElementById('alterarModal');
         const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
         modal.hide();
-    })
-    .catch(err => console.error(err));
+    });
 }
 
 function deletar(id){
-    fetch(url, {method=DELETE})
+     fetch(`${url}/${id}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+        }).then(() => listar());
 
+}
+
+function comprar(id){
+    fetch(`${url}/${id}`).then(res => res.json()).then(jogo => {
+        alert(`Código Ativação: ${jogo.codigo_ativacao}`);
+    })
 }
 
 

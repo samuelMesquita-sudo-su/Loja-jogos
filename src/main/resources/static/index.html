@@ -32,8 +32,7 @@
               Funções
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Salvar</a></li>
-              <li><a class="dropdown-item" href="#">Deletar</a></li>
+              <li><a class="dropdown-item" href="#" onclick="cadastrar()">Cadastrar</a></li>
             </ul>
           </li>
         </ul>
@@ -47,32 +46,41 @@
   </header>
 
   <main>
+    <form id="form">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome do Jogo</label>
+        <input type="text" class="form-control" id="nome">
+      </div>
+      <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria do Jogo</label>
+        <input type="text" class="form-control" id="categoria">
+      </div>
+      <div class="mb-3">
+        <label for="preco" class="form-label">Preço do Jogo</label>
+        <input type="number" class="form-control" id="preco">
+      </div>
+      <div class="mb-3">
+        <label for="codigo_ativacao" class="form-label">Código de Ativação do Jogo</label>
+        <input type="text" class="form-control" id="codigo_ativacao">
+      </div>
+      <button type="button" class="btn btn-success" onclick="salvar()">Salvar</button>
+    </form>
+
+    <br>
+
+
+
     <div id="lista" class="row">
-        <p class="font-weight-bold">#Id</p>
-        <img src="./controller.svg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nome</h5>
-          <p class="card-text">Isto é possivelmente um jogo, basta comprar e jogar.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Categoria</li>
-        </ul>
-        <div class="card-body">
-          <a onclick="comprar()" href="" class="btn btn-primary">Comprar</a>
-          <a onclick="alterar()" href="" class="btn btn-warning">Alterar</a>
-          <a onclick="deletar()" href="#" class="btn btn-danger">
-            <img src="./trash3.svg" alt="Deletar" width="16" height="16">
-          </a>
-        </div>
+        <!-- os cards aparecem na função listar do js -->
     </div>
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="alterarModal" tabindex="-1" aria-labelledby="alterarModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Alteração</h1>
+            <h1 class="modal-title fs-5" id="alterarModalLabel">Alteração</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
